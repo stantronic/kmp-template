@@ -1,4 +1,6 @@
-rootProject.name = "KotlinProject"
+@file:Suppress("UnstableApiUsage")
+
+rootProject.name = "KmpTemplate"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
@@ -9,6 +11,12 @@ pluginManagement {
                 includeGroupAndSubgroups("com.android")
                 includeGroupAndSubgroups("com.google")
             }
+            mavenCentral()
+            google()
+            maven {
+                url = uri("https://plugins.gradle.org/m2/")
+            }
+            maven("https://us-central1-maven.pkg.dev/varabyte-repos/public")
         }
         mavenCentral()
         gradlePluginPortal()
@@ -19,6 +27,12 @@ dependencyResolutionManagement {
     repositories {
         google {
             mavenContent {
+                gradlePluginPortal()
+                google()
+                mavenCentral()
+                maven("https://plugins.gradle.org/m2/")
+                maven("https://kotlin.bintray.com/kotlinx")
+                maven("https://us-central1-maven.pkg.dev/varabyte-repos/public")
                 includeGroupAndSubgroups("androidx")
                 includeGroupAndSubgroups("com.android")
                 includeGroupAndSubgroups("com.google")

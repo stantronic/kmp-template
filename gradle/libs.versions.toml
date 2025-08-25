@@ -1,23 +1,44 @@
 [versions]
-agp = "8.7.3"
-android-compileSdk = "35"
+android-gradle-plugin = "8.11.1"
+android-compileSdk = "36"
 android-minSdk = "24"
+#noinspection OldTargetApi
 android-targetSdk = "35"
 androidx-activity = "1.10.1"
 androidx-appcompat = "1.7.1"
-androidx-core = "1.16.0"
-androidx-espresso = "3.6.1"
-androidx-lifecycle = "2.9.1"
-androidx-testExt = "1.2.1"
-composeHotReload = "1.0.0-beta04"
+app-dirs = "2.0.0"
+androidx-core = "1.17.0"
+androidx-espresso = "3.7.0"
+androidx-lifecycle = "2.9.2"
+androidx-testExt = "1.3.0"
+composeHotReload = "1.0.0-beta05"
 composeMultiplatform = "1.8.2"
 junit = "4.13.2"
-kotlin = "2.2.0"
+kotlin = "2.2.10"
 kotlinx-coroutines = "1.10.2"
-ktor = "3.2.2"
+ktor = "3.2.3"
 logback = "1.5.18"
+detekt = "1.23.8"
+git-properties = "2.5.2"
+indexeddb = "0.10.0"
+jackson = "2.19.2"
+junit5 = "5.13.4"
+kobweb = "0.23.1"
+koin = "4.1.0"
+kotest = "6.0.0"
+#kotest-koin = "1.3.0"
+kotlinx-serialization = "1.9.0"
+kover = "0.9.1"
+ksp = "2.2.0-2.0.2"
+#mockative = "3.0.1"
+#mockk = "1.13.10"
+mokkery = "2.9.0"
+slack-webhook = "1.0.0"
+versions = "0.52.0"
+navigation-compose = "2.9.0-beta05"
 
 [libraries]
+ksp-api = { group = "com.google.devtools.ksp", name = "symbol-processing-api", version.ref = "ksp" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-testJunit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { module = "junit:junit", version.ref = "junit" }
@@ -33,13 +54,66 @@ logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 ktor-serverCore = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
 ktor-serverNetty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
 ktor-serverTestHost = { module = "io.ktor:ktor-server-test-host-jvm", version.ref = "ktor" }
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+compose-html-core = { group = "org.jetbrains.compose.html", name = "html-core", version.ref = "composeMultiplatform" }
+compose-runtime = { group = "org.jetbrains.compose.runtime", name = "runtime", version.ref = "composeMultiplatform" }
+app-dirs = { group = "ca.gosyer", name = "kotlin-multiplatform-appdirs", version.ref = "app-dirs" }
+androidx-lifecycle-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
+navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
+junit5-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit5" }
+kotest-runner = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
+kotest-assertions = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "kotest" }
+kotest-engine = { group = "io.kotest", name = "kotest-framework-engine", version.ref = "kotest" }
+indexeddb = { group = "com.juul.indexeddb", name = "core", version.ref = "indexeddb" }
+jackson-kotlin = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version.ref = "jackson" }
+jackson-xml = { group = "com.fasterxml.jackson.dataformat", name = "jackson-dataformat-xml", version.ref = "jackson" }
+koin-annotations = { group = "io.insert-koin", name = "koin-annotations", version = "koin-annotations" }
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+koin-compose-viewmodel = { group = "io.insert-koin", name = "koin-compose-viewmodel", version.ref = "koin" }
+koin-test = { group = "io.insert-koin", name = "koin-test", version.ref = "koin" }
+kobweb-api = { module = "com.varabyte.kobweb:kobweb-api", version.ref = "kobweb" }
+kobweb-core = { module = "com.varabyte.kobweb:kobweb-core ", version.ref = "kobweb" }
+kobweb-silk-core = { module = "com.varabyte.kobweb:kobweb-silk", version.ref = "kobweb" }
+kobweb-silk-icons-fa = { module = "com.varabyte.kobwebx:silk-icons-fa", version.ref = "kobweb" }
+kobweb-silk-icons-mdi = { module = "com.varabyte.kobwebx:silk-icons-mdi", version.ref = "kobweb" }
+kobwebx-markdown = { module = "com.varabyte.kobwebx:kobwebx-markdown", version.ref = "kobweb" }
+#kotest-koin = { group = "io.kotest.extensions", name = "kotest-extensions-koin", version.ref = "kotest-koin" }
+#mockative-processor = { group = "io.mockative", name = "mockative-processor", version.ref = "mockative" }
+#mockative = { group = "io.mockative", name = "mockative", version.ref = "mockative" }
+#mockative-test = { group = "io.mockative", name = "mockative-test", version.ref = "mockative" }
+#mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+mokkery = { group = "dev.mokkery", name = "mokkery", version.ref = "mokkery" }
+ktor-sessions = { group = "io.ktor", name = "ktor-server-sessions", version.ref = "ktor" }
+ktor-ratelimit = { group = "io.ktor", name = "ktor-server-rate-limit", version.ref = "ktor" }
+ktor-statusPages = { group = "io.ktor", name = "ktor-server-status-pages", version.ref = "ktor" }
+ktor-auth = { group = "io.ktor", name = "ktor-server-auth", version.ref = "ktor" }
+ktor-html = { group = "io.ktor", name = "ktor-server-html-builder", version.ref = "ktor" }
+gradle-plugin-versions = { group = "com.github.ben-manes", name = "gradle-versions-plugin", version.ref = "versions" }
+gradle-plugin-git-properties = { group = "com.gorylenko.gradle-git-properties", name = "com.gorylenko.gradle-git-properties.gradle.plugin", version.ref = "git-properties" }
+gradle-plugin-multiplatform = { group = "org.jetbrains.kotlin.multiplatform", name = "org.jetbrains.kotlin.multiplatform.gradle.plugin", version.ref = "kotlin" }
+gradle-plugin-kobweb-application = { group = "com.varabyte.kobweb.application", name = "com.varabyte.kobweb.application.gradle.plugin", version.ref = "kobweb" }
+gradle-plugin-kobwebx-markdown = { group = "com.varabyte.kobwebx.markdown", name = "com.varabyte.kobwebx.markdown.gradle.plugin", version.ref = "kobweb" }
+gradle-plugin-compose = { group = "org.jetbrains.compose", name = "org.jetbrains.compose.gradle.plugin", version.ref = "composeMultiplatform" }
+gradle-plugin-detekt = { group = "io.gitlab.arturbosch.detekt", name = "io.gitlab.arturbosch.detekt.gradle.plugin", version.ref = "detekt" }
 
 [plugins]
-androidApplication = { id = "com.android.application", version.ref = "agp" }
-androidLibrary = { id = "com.android.library", version.ref = "agp" }
+androidApplication = { id = "com.android.application", version.ref = "android-gradle-plugin" }
+androidLibrary = { id = "com.android.library", version.ref = "android-gradle-plugin" }
 composeHotReload = { id = "org.jetbrains.compose.hot-reload", version.ref = "composeHotReload" }
 composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+git-properties = { id = "com.gorylenko.gradle-git-properties", version.ref = "git-properties" }
+kobweb-application = { id = "com.varabyte.kobweb.application", version.ref = "kobweb" }
+kobweb-library = { id = "com.varabyte.kobweb.library", version.ref = "kobweb" }
+kobwebx-markdown = { id = "com.varabyte.kobwebx.markdown", version.ref = "kobweb" }
+kotest = { id = "io.kotest.multiplatform", version.ref = "kotest" }
+kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+mokkery = { id = "dev.mokkery", version.ref = "mokkery" }
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+slack-webhook = { id = "io.github.oleksiiparf.slack-webhook", version.ref = "slack-webhook" }
+versions = { id = "com.github.ben-manes.versions", version.ref = "versions" }
